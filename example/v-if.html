@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if&v-else&v-show</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-if&v-else&v-show</h1>
+    <hr>
+    <div id="app">
+        <div v-if="isLogin">你好，笨蛋</div>
+        <div v-show="isshow">你好啊，大大大笨蛋</div>
+
+    </div>
+    <div id="app11">
+        <li v-for="item in sortStudent">{{item.name}}:{{item.age}}</li>
+    </div>
+    <script type="text/javascript">
+        var aapp1234=new Vue({
+            el:'#app',
+            data:{
+                isLogin:true,
+                isshow:true
+            },
+            el:"#app11",
+            data:{
+                students:[
+                    {name:'xzj',age:30},
+                    {name:'xj',age:25},
+                    {name:'wer',age:27}
+                ]
+            },
+            computed:{
+                sortStudent:function(){
+                    return sortByke(this.students,'age');
+                }
+            },
+        })
+        function sortByke(array,key){
+            return array.sort(function(a,b){
+                var x=a[key];
+                var y=b[key];
+                return ((x<y)?-1:((x>y)?1:0));
+            })
+        }
+    </script>
+</body>
+</html>

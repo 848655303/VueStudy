@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind  标签属性绑定实列</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-bind  标签属性绑定实列</h1>
+    <hr>
+    <div id="app">
+        <p><img v-bind:src="imgsrc" width="200px"/></p>
+        <p><a :href="weburl" target="_blank">图片库</a></p>
+        <hr>
+        <div :class="className">1，绑定Class</div>
+        <div :class="{classB:isOK}">2，绑定Class中的判断</div>
+        <div :class="[class1,class2]">3，绑定Class中的数组</div>
+        <div :class="isOK?class1:class2">4，绑定Class中的三元运算符</div>
+        <hr>
+        <input type="checkbox" id="isOK111" v-model="isOK">
+        <label for="isOK111">isOK={{isOK}}</label>
+        <hr>
+        <div style="color:green;font-size: 20px">5，绑定style</div>
+        <div :style="{color:red1,fontSize:font}">5，绑定style(去掉横线，S大写,逗号分割)</div>
+        <div :style="styleObject111">6，绑定style对象</div>
+    </div>
+    <style>
+        .classA{
+            color: red;
+        }
+        .classB{
+            font-size: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        var aapp1234=new Vue({
+            el:'#app',
+            data:{
+                imgsrc:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556209018523&di=a23f5350c685a9e953e5c27fc5eaf9cb&imgtype=0&src=http%3A%2F%2Fimg1.ph.126.net%2FPsoIfC3TYdHx9t_gki2CwA%3D%3D%2F3859021930803194683.jpg",
+                weburl:'https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%C3%C0%C5%AE&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111',
+                className:"classA",
+                isOK:true,
+                class1:'classA',
+                class2:'classB',
+                red1:'red',
+                font:'20px',
+                styleObject111:{
+                    color:'orange',
+                    fontSize:"30px",
+                }
+            }
+        })
+    </script>
+</body>
+</html>

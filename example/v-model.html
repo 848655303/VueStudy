@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model和修饰符（lazy、number等）</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-model和修饰符（lazy、number等）</h1>
+    <hr>
+    <div id="app">
+        <p>{{message}}</p>
+        <h3>文本框</h3>
+        <p>v-model<input type="text" v-model="message">实时双向绑定</p>
+        <p>v-model.lazy<input type="text" v-model.lazy="message">懒惰双向绑定</p>
+        <p>v-model.number<input type="text" v-model.number="message">数字双向绑定(需要原始值是数字)</p>
+        <p>v-model.trim<input type="text" v-model.trim="message">去前后空格</p>
+        <hr>
+        <h3>文本域</h3>
+        <textarea cols="30" rows="10" v-model="message"></textarea>
+
+        <hr>
+        <h3>多选框绑定一个值</h3>
+        <input type="checkbox" id="isTrue" v-model="isTrue">
+        <label for="isTrue">{{isTrue}}</label>
+        <hr>
+        <h3>多选框绑定一个数组</h3>
+        <p>
+            <input type="checkbox" id="js1" value="js" v-model="web_names">
+            <label>js</label>
+            <input type="checkbox" id="ds1" value="ds" v-model="web_names">
+            <label>ds</label>
+            <input type="checkbox" id="cs1" value="cs" v-model="web_names">
+            <label>cs</label>
+            <input type="checkbox" id="es1" value="es" v-model="web_names">
+            <label>es</label>
+        </p>
+        <p>{{web_names}}</p>
+        <hr>
+        <h3>单选框</h3>
+        <p>
+            <input type="radio" id='one' value="男" v-model="sex">
+            <label for="one">男</label>
+            <input type="radio" id='two' value="女" v-model="sex">
+            <label for="two">女</label>
+            <p>你选择的性别是：{{sex}}</p>
+        </p>
+    </div>
+    <script type="text/javascript">
+        var aapp1234 = new Vue({
+            el: '#app',
+            data: {
+                message: '123',
+                isTrue: true,
+                web_names:[],
+                sex:'男',
+            }
+        })
+    </script>
+</body>
+
+</html>
